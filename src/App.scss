@@ -1,0 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap');
+
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'Ubuntu';
+}
+
+#root {
+  height: 100vh;
+}
+
+.bg{
+  height: 100%;
+}
+
+.light{
+  background: linear-gradient(239.26deg, #DDEEED 63.17%, #FDF1E0 94.92%);
+  
+}
+
+.dark{
+  background: #ccc;
+}
+
+.purple{
+  background: purple;
+}

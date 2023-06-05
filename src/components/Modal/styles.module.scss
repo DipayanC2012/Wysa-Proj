@@ -1,0 +1,124 @@
+.modalBackdrop {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 16px;
+  backdrop-filter: blur(10px);
+  z-index: 11;
+}
+
+.modalWrapper {
+  position: fixed;
+  z-index: 12;
+  top: 15%;
+  left: 50%;
+  transform: translate(-50%);
+  background: #ffffff;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  min-height: 450px;
+  min-width: 450px;
+  padding: 50px 100px 10px;
+  border-radius: 10px;
+  align-items: center;
+  font-family: 'Ubuntu';
+  font-weight: 400;
+
+  .closeButton {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    font-size: 25px;
+  }
+
+  .userIcon {
+    font-size: 40px;
+  }
+
+  .profilePic {
+    height: 80px;
+    width: 80px;
+    object-fit: cover;
+    border-radius: 50%;
+    background: #ccc;
+  }
+
+  .profilePicButton {
+    background: #1877f2;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 10px;
+    transition: 0.3s ease-in;
+    cursor: pointer;
+    margin-bottom: 20px;
+    margin-top: 5px;
+    color: white;
+    font-size: 15px;
+
+    &:hover {
+      transform: scale(1.05);
+    }
+  }
+
+  .themesConatiner {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    .specifications {
+      display: flex;
+      gap: 50px;
+      align-items: center;
+      justify-content: space-between;
+
+      .title {
+        font-size: 15px;
+        width: 100px;
+      }
+    }
+
+    .bottomSection {
+      display: flex;
+      width: 100%;
+      justify-content: space-between;
+      padding: 30px 0px;
+
+      .cancelButton {
+        border: 1px solid #1877f2;
+        padding: 5px 10px;
+        border-radius: 10px;
+        transition: 0.3s ease-in;
+        cursor: pointer;
+        margin-bottom: 20px;
+        margin-top: 5px;
+        color: #1877f2;
+        font-family: 15px;
+        font-weight: 500;
+
+        &:hover {
+          transform: scale(1.05);
+        }
+      }
+      .saveButton {
+        background: #1877f2;
+        padding: 5px 10px;
+        border: none;
+        border-radius: 10px;
+        transition: 0.3s ease-in;
+        cursor: pointer;
+        margin-bottom: 20px;
+        margin-top: 5px;
+        color: white;
+        font-family: 15px;
+        font-weight: 500;
+
+        &:hover {
+          transform: scale(1.05);
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,121 @@
+.login {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background: linear-gradient(239.26deg, #DDEEED 63.17%, #FDF1E0 94.92%);
+
+  .loginContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: white;
+    padding: 50px 75px;
+    border-radius: 10px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    font-family: 'Open Sans', sans-serif;
+
+    .loginImage {
+      width: 100px;
+      height: auto;
+    }
+
+    .loginForm {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      .formLabel {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+        min-width: 300px;
+        width: 100%;
+        margin: 10px 0;
+
+        > label {
+          font-size: 0.9rem;
+          font-weight: 400;
+          margin-bottom: 5px;
+        }
+
+        &:last-of-type {
+          margin-bottom: 1.5rem;
+        }
+
+        .formInputContainer {
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          width: 100%;
+          height: 30px;
+          border: 1px solid #ccc;
+          border-radius: 7px;
+          padding: 0 8px;
+
+          > input {
+            width: 100%;
+            height: 100%;
+            border: none;
+            outline: none;
+            font-size: 0.8rem;
+            font-weight: 400;
+            color: #333;
+          }
+        }
+      }
+      .bottomSection {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        margin-bottom: 2.5rem;
+
+        .rememberMeSection {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+
+          > p {
+            font-size: 0.8rem;
+            font-weight: 400;
+            margin: 0 0.5rem;
+          }
+        }
+
+        .forgotPassword {
+          font-size: 0.8rem;
+          font-weight: 400;
+          color: var(--primary);
+          cursor: pointer;
+          transition: all 0.2s ease-in-out;
+
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+      }
+
+      .loginButton {
+        width: 30%;
+        padding: 0.7rem 0;
+        border: none;
+        outline: none;
+        border-radius: 10px;
+        background-color: #7ac0c6;
+        color: white;
+        font-size: 1rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.2s ease-in-out;
+        text-align: center;
+
+        &:hover {
+          transform: scale(1.05);
+        }
+      }
+    }
+  }
+}
