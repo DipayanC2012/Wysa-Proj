@@ -1,68 +1,69 @@
-import React from 'react';
-import {AiOutlineUser, AiOutlineEye} from 'react-icons/ai';
-import styles from './styles.module.scss';
-import {useNavigate} from 'react-router-dom';
-import axios from 'axios';
-import {BASE_API} from '../../API';
+import React from 'react'
+import { AiOutlineUser, AiOutlineEye } from 'react-icons/ai'
+import styles from './styles.module.scss'
+import { useNavigate } from 'react-router-dom'
+import axios from 'axios'
+import { BASE_API } from '../../API'
 
 const Login = () => {
-  const navigate = useNavigate();
+  const navigate = useNavigate()
 
   /*User data state*/
   const [user, setUser] = React.useState({
     username: '',
     password: '',
-    rememberMe: false,
-  });
-  const [showPassword, setShowPassword] = React.useState(false);
+    rememberMe: false
+  })
+  const [showPassword, setShowPassword] = React.useState(false)
 
   /*Handle input change and checkbox*/
   const handleChange = (e) => {
-    const {name, value, type, checked} = e.target;
+    const { name, value, type, checked } = e.target
     type === 'checkbox'
-      ? setUser({...user, [name]: checked})
-      : setUser({...user, [name]: value});
-  };
+      ? setUser({ ...user, [name]: checked })
+      : setUser({ ...user, [name]: value })
+  }
 
   /*Change password visibility*/
   const handleShowPassword = () => {
-    setShowPassword((prev) => !prev);
-  };
+    setShowPassword((prev) => !prev)
+  }
 
   // If user doesnt exists then post the user data
   const postNewUser = () => {
-    const {username} = user ?? {};
+    const { username } = user ?? {}
     axios
       .post(`${BASE_API}/${user.username}.json`, {
         username,
-        themes:{
-          default:{
-          name:'default',
-          background:'linear-gradient(239.26deg, #DDEEED 63.17%, #FDF1E0 94.92%)',
-          bubble:'#fff',
-          text:'#000000'
+        themes: {
+          default: {
+            name: 'default',
+            background:
+              'linear-gradient(239.26deg, #DDEEED 63.17%, #FDF1E0 94.92%)',
+            bubble: '#fff',
+            text: '#000000'
           }
         }
       })
-      .catch((err) => console.log(err));
-  };
+      .catch((err) => console.log(err))
+  }
 
   /*Handle form submit*/
   const handleSubmit = (e) => {
-    e.preventDefault();
+    e.preventDefault()
 
     axios
       .get(`${BASE_API}/${user.username}.json`)
       .then((res) => {
         if (!res.data) {
-          postNewUser();
+          postNewUser()
         }
-      })  
+      })
       .catch((err) => console.log(err))
       .finally(() => {
-        navigate('/home/' + user.username);
-      });
-  };
+        navigate('/home/' + user.username)
+      })
+  }
 
   return (
     <div className={styles.login}>
@@ -106,7 +107,7 @@ const Login = () => {
               <AiOutlineEye
                 className={styles.formIcon}
                 onClick={handleShowPassword}
-                style={{cursor: 'pointer'}}
+                style={{ cursor: 'pointer' }}
               />
             </div>
           </div>
@@ -129,7 +130,7 @@ const Login = () => {
         </form>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Login;
+export default Login

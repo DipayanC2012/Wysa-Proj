@@ -26,6 +26,7 @@ const Home = () => {
 
   const themesValueArray = themes && Object.values(themes)
 
+  /* logic to render messages one by one*/
   useEffect(() => {
     interval = setInterval(() => {
       setMessageCount((prev) => prev + 1)
@@ -41,13 +42,11 @@ const Home = () => {
 
   useEffect(() => {
     const themeIndex = localStorage.getItem('theme-index')
-
     if (!themeIndex || themeIndex > themesValueArray?.length - 1) {
       setIndex(0)
       localStorage.setItem('theme-index', 0)
       return
     }
-
     setIndex(Number(themeIndex))
   }, [username, themesValueArray])
 
@@ -128,14 +127,14 @@ const Home = () => {
         <form
           className={styles.inputField}
           style={{
-            backgroundColor: themes && themesValueArray[index]?.bubble,
-            color: themes && themesValueArray[index]?.text
+            backgroundColor: themes && themesValueArray[index]?.bubble
           }}
         >
           <input
             className={styles.textArea}
             type='text'
             placeholder='Type your message'
+            style={{ color: themes && themesValueArray[index]?.text }}
           />
         </form>
       </div>

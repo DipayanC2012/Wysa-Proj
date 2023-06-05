@@ -4,6 +4,7 @@ import { createPortal } from 'react-dom'
 import { AiOutlineCloseCircle } from 'react-icons/ai'
 import axios from 'axios'
 import { BASE_API } from '../../API'
+import { useNavigate } from 'react-router-dom'
 
 const Modal = ({ setIsModalOpen, userId, username }) => {
   const [allThemes, setAllThemes] = useState({
@@ -15,6 +16,7 @@ const Modal = ({ setIsModalOpen, userId, username }) => {
 
   const [imageUrl, setImageUrl] = useState()
 
+  /* Setting user-input based theme*/
   const handleThemeChange = (e) => {
     const { name, value } = e.target
     setAllThemes({
@@ -23,6 +25,7 @@ const Modal = ({ setIsModalOpen, userId, username }) => {
     })
   }
 
+  //Close Modal on pressing escape
   React.useEffect(() => {
     function handleEscapeKey(e) {
       if (e.keyCode === 27) {
@@ -43,6 +46,7 @@ const Modal = ({ setIsModalOpen, userId, username }) => {
       .catch((err) => console.log(err))
   }, [username, userId])
 
+  //Post color profile in firebases
   const updateUserData = (e) => {
     e.preventDefault()
     const { name, background, text, bubble } = allThemes ?? {}
@@ -64,6 +68,7 @@ const Modal = ({ setIsModalOpen, userId, username }) => {
       })
       .catch((err) => console.log(err))
   }
+  const navigate = useNavigate()
 
   return createPortal(
     <>
@@ -136,10 +141,11 @@ const Modal = ({ setIsModalOpen, userId, username }) => {
           </div>
           <div className={styles.bottomSection}>
             <button
-              className={styles.cancelButton}
-              onClick={() => setIsModalOpen(false)}
+              type='button'
+              className={styles.logOutButton}
+              onClick={() => navigate('/')}
             >
-              Cancel
+              Log Out
             </button>
             <button type='submit' className={styles.saveButton}>
               Save

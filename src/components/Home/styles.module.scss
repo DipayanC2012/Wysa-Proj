@@ -29,10 +29,8 @@
   }
 
   .chatContainer {
-    // position: fixed;
     top: 30px;
     left: 50%;
-    // transform: translateX(-50%);
     display: flex;
     flex-direction: column;
     align-content: flex-start;
@@ -56,17 +54,13 @@
       }
     }
   }
-  // .userChat{
-  //   width: 200px;
-  //   height: 200px;
-  // }
+
   .inputField {
-    // position: relative;
     display: flex;
     border: 1px solid #ccc;
     border-radius: 5px;
     padding: 10px 5px 10px 10px;
-    // top: 100px;
+
     .textArea {
       width: 100%;
       border: none;
